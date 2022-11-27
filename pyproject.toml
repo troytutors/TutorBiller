@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "tutorbiller"
+version = "0.1.0"
+description = "Automated Square Invoice Submission Software"
+authors = ["Zachary Nawrocki <zacknawrocki@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.28.1"
+squareup = "^24.0.0"
+Flask = "^2.2.2"
+notebook = "^6.5.2"
+mypy = "^0.991"
+python-dotenv = "^0.21.0"
+gevent = "^22.10.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
