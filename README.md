@@ -27,7 +27,7 @@ you will want to use the API and leave it running. To launch the API, run
 
 ```poetry run python tutor_biller.py```
 
-Here is how you could make a POST billing API request in Python using TutorBiller.
+Here is how you could make a POST billing API request in Python to TutorBiller.
 ```python
 import requests
 
