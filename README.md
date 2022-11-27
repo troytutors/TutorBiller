@@ -16,10 +16,10 @@ email address, and the secret_key for the /bill API call. For this reason, you m
 relevant credentials in the .env file before running TutorBiller.
 
 ### Square
-You can always monitor your Square invoices [here](https://squareup.com/dashboard/invoices/overview).
-The "sandbox" environment is a testing account for Square, while the "production" environment uses our
-official Square account to bill students. You can access Square API credentials, logs, documentation,
-access the sandbox dashboard, and more [here](https://developer.squareup.com/us/en).
+You can always monitor your Square invoices [here](https://squareup.com/dashboard/invoices/overview) in
+the production dashboard. The "sandbox" environment is a testing account for Square, while the "production"
+environment uses our official Square account to bill students. You can access Square API credentials, logs,
+documentation, the sandbox dashboard, and more [here](https://developer.squareup.com/us/en).
 
 ### Running the API
 If you are using TutorBiller to handle incoming billing requests, from the Troy Tutors Billing page,
