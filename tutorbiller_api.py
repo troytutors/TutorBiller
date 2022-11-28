@@ -46,6 +46,7 @@ def index():
 def bill_student():
     billing_info = request.get_json()
     valid_keys = are_valid_keys(billing_info)
+    print(f"Arguments: {billing_info}")
     if not valid_keys[0]:
         return jsonify({"Missing key": valid_keys[1]})
     if billing_info["secret_key"] != os.getenv("secret_key"):

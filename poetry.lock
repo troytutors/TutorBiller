@@ -60,6 +60,20 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "argcomplete"
+version = "2.0.0"
+description = "Bash tab completion for argparse"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+importlib-metadata = {version = ">=0.23,<5", markers = "python_version == \"3.7\""}
+
+[package.extras]
+test = ["coverage", "flake8", "pexpect", "wheel"]
+
+[[package]]
 name = "argon2-cffi"
 version = "21.3.0"
 description = "The secure Argon2 password hashing algorithm."
@@ -145,6 +159,38 @@ css = ["tinycss2 (>=1.1.0,<1.2)"]
 dev = ["build (==0.8.0)", "flake8 (==4.0.1)", "hashin (==0.17.0)", "pip-tools (==6.6.2)", "pytest (==7.1.2)", "Sphinx (==4.3.2)", "tox (==3.25.0)", "twine (==4.0.1)", "wheel (==0.37.1)", "black (==22.3.0)", "mypy (==0.961)"]
 
 [[package]]
+name = "boto3"
+version = "1.26.16"
+description = "The AWS SDK for Python"
+category = "main"
+optional = false
+python-versions = ">= 3.7"
+
+[package.dependencies]
+botocore = ">=1.29.16,<1.30.0"
+jmespath = ">=0.7.1,<2.0.0"
+s3transfer = ">=0.6.0,<0.7.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
+
+[[package]]
+name = "botocore"
+version = "1.29.16"
+description = "Low-level, data-driven core of boto 3."
+category = "main"
+optional = false
+python-versions = ">= 3.7"
+
+[package.dependencies]
+jmespath = ">=0.7.1,<2.0.0"
+python-dateutil = ">=2.1,<3.0.0"
+urllib3 = ">=1.25.4,<1.27"
+
+[package.extras]
+crt = ["awscrt (==0.14.0)"]
+
+[[package]]
 name = "cachecontrol"
 version = "0.12.12"
 description = "httplib2 caching for requests"
@@ -178,6 +224,19 @@ python-versions = "*"
 
 [package.dependencies]
 pycparser = "*"
+
+[[package]]
+name = "cfn-flip"
+version = "1.3.0"
+description = "Convert AWS CloudFormation templates between JSON and YAML formats"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Click = "*"
+PyYAML = ">=4.1"
+six = "*"
 
 [[package]]
 name = "charset-normalizer"
@@ -244,6 +303,14 @@ python-versions = "*"
 
 [package.dependencies]
 packaging = "*"
+
+[[package]]
+name = "durationpy"
+version = "0.5"
+description = "Module for converting between datetime.timedelta and Go's Duration strings."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "entrypoints"
@@ -325,6 +392,14 @@ docs = ["sphinx", "docutils (<0.18)"]
 test = ["objgraph", "psutil", "faulthandler"]
 
 [[package]]
+name = "hjson"
+version = "3.1.0"
+description = "Hjson, a user interface for JSON."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -334,7 +409,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "importlib-metadata"
-version = "5.0.0"
+version = "4.13.0"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
@@ -468,6 +543,14 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "jmespath"
+version = "1.0.1"
+description = "JSON Matching Expressions"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "jsonpickle"
 version = "1.5.2"
 description = "Python library for serializing any arbitrary object graph into JSON"
@@ -575,6 +658,20 @@ description = "Pygments theme using JupyterLab CSS variables"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "kappa"
+version = "0.6.0"
+description = "A CLI tool for AWS Lambda developers"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+boto3 = ">=1.2.3"
+click = ">=5.1"
+placebo = ">=0.8.1"
+PyYAML = ">=3.11"
 
 [[package]]
 name = "markupsafe"
@@ -854,6 +951,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "placebo"
+version = "0.9.0"
+description = "Make boto3 calls that look real but have no effect"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "prometheus-client"
 version = "0.15.0"
 description = "Python client for the Prometheus monitoring system."
@@ -963,6 +1068,28 @@ python-versions = ">=3.7"
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "python-slugify"
+version = "7.0.0"
+description = "A Python slugify application that also handles Unicode"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+text-unidecode = ">=1.3"
+
+[package.extras]
+unidecode = ["Unidecode (>=1.1.1)"]
+
+[[package]]
+name = "pytz"
+version = "2022.6"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pywin32"
 version = "305"
 description = "Python for Window Extensions"
@@ -977,6 +1104,14 @@ description = "Pseudo terminal support for Windows from Python."
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "pyyaml"
+version = "6.0"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
 
 [[package]]
 name = "pyzmq"
@@ -1007,6 +1142,20 @@ urllib3 = ">=1.21.1,<1.27"
 [package.extras]
 socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "s3transfer"
+version = "0.6.0"
+description = "An Amazon S3 Transfer Manager"
+category = "main"
+optional = false
+python-versions = ">= 3.7"
+
+[package.dependencies]
+botocore = ">=1.12.36,<2.0a.0"
+
+[package.extras]
+crt = ["botocore[crt] (>=1.20.29,<2.0a.0)"]
 
 [[package]]
 name = "send2trash"
@@ -1081,6 +1230,14 @@ docs = ["pydata-sphinx-theme", "sphinx"]
 test = ["pre-commit", "pytest-timeout", "pytest (>=7.0)"]
 
 [[package]]
+name = "text-unidecode"
+version = "1.3"
+description = "The most basic Text::Unidecode port"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "tinycss2"
 version = "1.2.1"
 description = "A tiny CSS parser"
@@ -1094,6 +1251,14 @@ webencodings = ">=0.4"
 [package.extras]
 test = ["flake8", "isort", "pytest"]
 doc = ["sphinx-rtd-theme", "sphinx"]
+
+[[package]]
+name = "toml"
+version = "0.10.2"
+description = "Python Library for Tom's Obvious, Minimal Language"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "tomli"
@@ -1112,6 +1277,23 @@ optional = false
 python-versions = ">= 3.7"
 
 [[package]]
+name = "tqdm"
+version = "4.64.1"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
 name = "traitlets"
 version = "5.5.0"
 description = ""
@@ -1122,6 +1304,21 @@ python-versions = ">=3.7"
 [package.extras]
 docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["pre-commit", "pytest"]
+
+[[package]]
+name = "troposphere"
+version = "4.1.0"
+description = "AWS CloudFormation creation library"
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+
+[package.dependencies]
+cfn-flip = ">=1.0.2"
+typing-extensions = {version = ">=3.7.4.3", markers = "python_version < \"3.8\""}
+
+[package.extras]
+policy = ["awacs (>=2.0.0)"]
 
 [[package]]
 name = "typed-ast"
@@ -1196,6 +1393,41 @@ MarkupSafe = ">=2.1.1"
 watchdog = ["watchdog"]
 
 [[package]]
+name = "wsgi-request-logger"
+version = "0.4.6"
+description = "Apache-like combined logging for WSGI Web Applications"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "zappa"
+version = "0.55.0"
+description = "Server-less Python Web Services for AWS Lambda and API Gateway"
+category = "main"
+optional = false
+python-versions = ">=3.7, <3.10"
+
+[package.dependencies]
+argcomplete = "*"
+boto3 = ">=1.17.28"
+durationpy = "*"
+hjson = "*"
+jmespath = "*"
+kappa = "0.6.0"
+placebo = "<0.10"
+python-dateutil = "*"
+python-slugify = "*"
+pyyaml = "*"
+requests = ">=2.20.0"
+six = "*"
+toml = "*"
+tqdm = "*"
+troposphere = ">=3.0"
+werkzeug = "*"
+wsgi-request-logger = "*"
+
+[[package]]
 name = "zipp"
 version = "3.10.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -1234,8 +1466,8 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.7"
-content-hash = "bbbdc1aa7852f3934adbe8153377ea3e94bdd2ca5d4bcc48918dfb05adc33b51"
+python-versions = ">=3.7, <3.10"
+content-hash = "20cd4e73d13a082fc84adafa13ccd00100044dc4ace89719cfba3ad02034dd3d"
 
 [metadata.files]
 anyio = []
@@ -1243,15 +1475,19 @@ apimatic-core = []
 apimatic-core-interfaces = []
 apimatic-requests-client-adapter = []
 appnope = []
+argcomplete = []
 argon2-cffi = []
 argon2-cffi-bindings = []
 attrs = []
 backcall = []
 beautifulsoup4 = []
 bleach = []
+boto3 = []
+botocore = []
 cachecontrol = []
 certifi = []
 cffi = []
+cfn-flip = []
 charset-normalizer = []
 click = []
 colorama = []
@@ -1259,12 +1495,14 @@ debugpy = []
 decorator = []
 defusedxml = []
 deprecation = []
+durationpy = []
 entrypoints = []
 enum34 = []
 fastjsonschema = []
 flask = []
 gevent = []
 greenlet = []
+hjson = []
 idna = []
 importlib-metadata = []
 importlib-resources = []
@@ -1274,12 +1512,14 @@ ipython-genutils = []
 itsdangerous = []
 jedi = []
 jinja2 = []
+jmespath = []
 jsonpickle = []
 jsonschema = []
 jupyter-client = []
 jupyter-core = []
 jupyter-server = []
 jupyterlab-pygments = []
+kappa = []
 markupsafe = []
 matplotlib-inline = []
 mistune = []
@@ -1302,6 +1542,7 @@ parso = []
 pexpect = []
 pickleshare = []
 pkgutil-resolve-name = []
+placebo = []
 prometheus-client = []
 prompt-toolkit = []
 psutil = []
@@ -1316,20 +1557,31 @@ pyparsing = []
 pyrsistent = []
 python-dateutil = []
 python-dotenv = []
+python-slugify = []
+pytz = []
 pywin32 = []
 pywinpty = []
+pyyaml = []
 pyzmq = []
 requests = []
+s3transfer = []
 send2trash = []
 six = []
 sniffio = []
 soupsieve = []
 squareup = []
 terminado = []
+text-unidecode = []
 tinycss2 = []
+toml = [
+    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
+    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+]
 tomli = []
 tornado = []
+tqdm = []
 traitlets = []
+troposphere = []
 typed-ast = []
 typing-extensions = []
 urllib3 = []
@@ -1337,6 +1589,8 @@ wcwidth = []
 webencodings = []
 websocket-client = []
 werkzeug = []
+wsgi-request-logger = []
+zappa = []
 zipp = []
 "zope.event" = []
 "zope.interface" = []

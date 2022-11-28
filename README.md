@@ -1,5 +1,5 @@
 # TutorBiller
-Automated Square Invoice Submission Software
+Automated Invoice Submission Software
 
 ### Installation
 
@@ -12,8 +12,9 @@ in the root of the project.
 
 ### Configure Environment Variables
 This code depends on secure credentials used to access the Troy Tutors Square account, Troy Tutors'
-email address, and the secret_key for the /bill API call. For this reason, you must first fill in the
-relevant credentials in the .env file before running TutorBiller.
+email address, Troy Tutors' AWS credentials, and the secret_key for the /bill API call. For this reason,
+you must first fill in the relevant credentials in the .env file and zappa_settings.json file before
+running TutorBiller.
 
 ### Square
 You can always monitor your Square invoices [here](https://squareup.com/dashboard/invoices/overview) in
@@ -64,3 +65,36 @@ billed, invoice_id, invoice_version, emailed = bill_student("sandbox", "tutorema
                                                             "studentemail@test.com", "Calculus I", "Nov 25, 2022",
                                                             60, 33)
 ```
+
+### Deployment
+TutorBiller runs on [AWS Lambda](https://aws.amazon.com/lambda/) and uses [Zappa](https://github.com/zappa/Zappa)
+to build and deploy the API. By deploying this as a serverless API, no expenses are needed to keep
+TutorBiller running.
+
+If you do not have one already, you will need to set up your AWS credentials in your home directory
+
+To create the credentials file and your home .aws directory, do
+```
+mkdir ~/.aws
+vi ~/.aws/credentials
+```
+
+Then put the following in the file
+```
+[default]
+aws_access_key_id=[replace with relevant credential]
+aws_secret_access_key=[replace with relevant credential]
+```
+
+If TutorBiller is currently deployed, and you only need to upload new Python code, but not touch the
+underlying routes, you can run
+```
+poetry run zappa update dev
+```
+You can view the recent logs of TutorBiller with
+```
+poetry run zappa tail dev
+```
+
+Other Zappa commands and documentation can be found in its
+GitHub [README](https://github.com/zappa/Zappa/blob/master/README.md).

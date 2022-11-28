@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "app_function": "tutorbiller_api.app",
+        "profile_name": "default",
+        "project_name": "tutorbiller",
+        "runtime": "python3.7",
+        "s3_bucket": "zappa-aaab27oul",
+        "aws_region": "us-east-1",
+        "environment_variables": {
+            "secret_key": "",
+            "sandbox_access_token": "",
+            "production_access_token": "",
+            "sandbox_location_id": "",
+            "production_location_id": "",
+            "smtp_server": "",
+            "sender_email": "",
+            "password": "",
+            "port": ""
+        }
+    }
+}

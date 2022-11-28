@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 from square.client import Client
 from datetime import datetime
 import smtplib
+import pytz
 import ssl
 import os
 
@@ -38,32 +39,41 @@ class InvoiceEngine:
         student_email = student_email.lower()
 
         # Create a customer, if customer doesn't already exist
+        print("Creating a customer or finding an existing customer...")
         successful_call, customer_id, already_existed = self.customers.create_customer(student_email)
-
         if not successful_call:
             return False, "", -1, False
+        print("Success")
 
         # Create an order for the invoice (what was paid for, total price based on course and duration)
+        print("Creating an order...")
         created, order_id = self.orders.create_order(self.location_id, customer_id, course, session_minutes,
                                                      price, student_email)
-
         if not created:
             return False, "", -1, False
+        print("Success")
 
         # Draft an invoice
+        print("Drafting an invoice...")
         drafted, invoice_id, invoice_version = self.invoices.draft_invoice(customer_id, order_id,
                                                                            tutor_email, session_date)
-
         if not drafted:
             return False, "", -1, False
+        print("Success")
 
         # Publish an invoice
+        print("Publishing an invoice...")
         published, invoice_id, invoice_version = self.invoices.publish_invoice(invoice_id, invoice_version)
+        if published:
+            print("Success")
 
         # Send a confirmation email
         emailed = False
         if send_email:
+            print("Sending an email...")
             emailed = self.send_confirmation_email(tutor_email, student_email, course, session_date, session_minutes)
+            if emailed:
+                print("Success")
 
         return published, invoice_id, invoice_version, emailed
 
@@ -77,7 +87,8 @@ class InvoiceEngine:
         password = self.email_info[f"password"]
         tutor_id = f"{tutor_email.split('@')[0]}"
         student_id = f"{student_email.split('@')[0]}"
-        now = datetime.now().astimezone()
+        et = pytz.timezone('US/Eastern')
+        now = datetime.now().astimezone(et)
         now_str = now.strftime("on %B %d, %Y at %I:%M %p %Z")
 
         message = MIMEMultipart("alternative")
