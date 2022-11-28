@@ -11,8 +11,8 @@ class ManageInvoices:
             self.message = f.read()
         self.month_abbr = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07",
                            "Aug": "08", "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
-        self.reminders = [{"relative_scheduled_days": -1}, {"relative_scheduled_days": 0},
-                          {"relative_scheduled_days": 3}]
+        self.reminders = [{"relative_scheduled_days": 1}, {"relative_scheduled_days": 3},
+                          {"relative_scheduled_days": 7}]
 
     def draft_invoice(self, customer_id: Text, order_id: Text, tutor_email: Text,
                       session_date: Text) -> Tuple[bool, Text, int]:
