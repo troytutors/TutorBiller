@@ -40,7 +40,7 @@ class ManageOrders:
         }
 
         # Hardcoded, remove after December and remove student_email argument from function
-        if student_email == "discount@test.com" or student_email == "ria_santoro@yahoo.com" or student_email == "shaika3@rpi.edu":
+        if student_email == "discount@test.com":
             body["order"]["discounts"] = [{"name": "Pro Discount", "percentage": "10"}]
 
         res = self.client.orders.create_order(
