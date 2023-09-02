@@ -31,7 +31,7 @@ class ManageOrders:
                 "service_charges": [
                     {
                         "name": "Service Fee",
-                        "percentage": "3.9",
+                        "percentage": "6.5",
                         "calculation_phase": "TOTAL_PHASE",
                         "taxable": False
                     }
