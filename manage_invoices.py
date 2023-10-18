@@ -6,7 +6,7 @@ import square.client
 class ManageInvoices:
     def __init__(self, client: square.client.Client) -> None:
         self.client = client
-        self.due_in_n_days = 7
+        self.due_in_n_days = 3
         with open("invoice_message.txt", "r") as f:
             self.message = f.read()
         self.month_abbr = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04", "May": "05", "Jun": "06", "Jul": "07",
