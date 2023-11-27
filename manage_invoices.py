@@ -48,7 +48,11 @@ class ManageInvoices:
                 "title": f"Troy Tutors Session with {tutor_id}",
                 "description": self.message,
                 "accepted_payment_methods": {
-                    "card": True
+                    "card": True,
+                    "square_gift_card": True,
+                    "bank_account": True,
+                    "buy_now_pay_later": True,
+                    "cash_app_pay": True
                 },
                 "sale_or_service_date": session_date_str,
                 "store_payment_method_enabled": True
