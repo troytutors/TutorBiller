@@ -39,16 +39,22 @@ class ManageCustomers:
         # file will not be used to charge the customer.
         exists = False
         customer_id = ""
-        res = self.client.customers.list_customers()
-        if res.is_success():
+        try:
+            # Customers are returned using pagination. The list_customers endpoint must be called
+            # until there are no more cursors.
+            res = self.client.customers.list_customers()
+            customers = res.body["customers"]
+            while res.body.get("cursor"):
+                res = self.client.customers.list_customers(cursor=res.body["cursor"])
+                customers += res.body["customers"]
             successful_call = True
-            for r in res.body["customers"]:
-                if "email_address" in r and r["email_address"] == email:
-                    customer_id = r["id"]
+
+            for customer in customers:
+                if "email_address" in customer and customer["email_address"] == email:
+                    customer_id = customer["id"]
                     exists = True
                     break
-        elif res.is_error():
+        except:
             successful_call = False
-            print(res.errors)
 
         return successful_call, customer_id, exists
